@@ -125,8 +125,18 @@ STATIC_URL = '/static/'
 
 # Django REST framework
 
-REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissions'
+LOGIN_NEEDED = False
+BROWSABLEBAPI_NEEDED = False
+
+REST_FRAMEWORK = {}
+if LOGIN_NEEDED:
+    REST_FRAMEWORK['DEFAULT_PERMISSION_CLASSES'] = [
+        'rest_framework.permissions.DjangoModelPermissions',
     ]
-}
+if not BROWSABLEBAPI_NEEDED:
+    REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES'] = [
+        'rest_framework.renderers.JSONRenderer',
+    ]
+    REST_FRAMEWORK['DEFAULT_PARSER_CLASSES'] = [
+        'rest_framework.parsers.JSONParser',
+    ]

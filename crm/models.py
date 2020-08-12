@@ -1,14 +1,7 @@
-# the default import
 from django.db import models
-
-# my import
 from django.db.models.functions import Concat
 from django.db.models import Value
 import uuid
-
-# my import which may grow during adding new models
-
-# my code.
 
 
 def get_default_code():

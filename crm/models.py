@@ -1,6 +1,4 @@
 from django.db import models
-from django.db.models.functions import Concat
-from django.db.models import Value
 import uuid
 
 

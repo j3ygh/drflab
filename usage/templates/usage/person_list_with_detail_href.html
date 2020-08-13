@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Person List With Detail | Usage</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'usage/css/base.css' %}">
+</head>
+
+<body>
+
+  <div id="app">
+    <table>
+
+      <tr v-for="person in people">
+        <td><a href="#">{$ person.name $}</a></td>
+        <td>{$ person.phone_number $}</td>
+      </tr>
+
+    </table>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        people: {}
+      },
+      delimiters: ['{$', '$}'],
+      created() {
+        fetch('/api/person/')
+          .then(response => response.json())
+          .then(value => this.people = value)
+          .then(value => console.log(this.people))
+      }
+    });
+  </script>
+
+</body>
+
+</html>

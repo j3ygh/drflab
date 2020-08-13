@@ -37,9 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework', # django rest framework
-    'api.apps.ApiConfig', # my app
-    'crm.apps.CrmConfig', # my app
+    'rest_framework',  # django rest framework
+    'api.apps.ApiConfig',
+    'crm.apps.CrmConfig',
+    'usage.apps.UsageConfig',
 ]
 
 MIDDLEWARE = [

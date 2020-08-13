@@ -8,6 +8,7 @@ class PersonSerializer(serializers.ModelSerializer):
     class Meta:
         model = Person
         fields = (
+            # 'url',
             'id',
             'uuid',
             'name',
@@ -24,6 +25,7 @@ class DeviceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Device
         fields = (
+            # 'url',
             'id',
             'uuid',
             'name',

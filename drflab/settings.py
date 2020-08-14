@@ -79,8 +79,12 @@ WSGI_APPLICATION = 'drflab.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'drflabdb',
+        'USER': 'admin',
+        'PASSWORD': '20180105',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 
@@ -127,7 +131,7 @@ STATIC_URL = '/static/'
 # Django REST framework
 
 LOGIN_NEEDED = False
-BROWSABLEBAPI_NEEDED = False
+BROWSABLEBAPI_NEEDED = True
 
 REST_FRAMEWORK = {}
 if LOGIN_NEEDED:

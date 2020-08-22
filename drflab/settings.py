@@ -77,7 +77,18 @@ WSGI_APPLICATION = 'drflab.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
+ORACLE_DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.oracle',
+        'NAME': 'db1',
+        'USER': 'system',
+        'PASSWORD': 'User1234',
+        'HOST': '10.50.12.21',
+        'PORT': '1521',
+    }
+}
+
+MARIA_DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'drflabdb',
@@ -87,6 +98,8 @@ DATABASES = {
         'PORT': '3306',
     }
 }
+
+DATABASES = ORACLE_DATABASES
 
 
 # Password validation

@@ -35,7 +35,6 @@ class Person(models.Model):
     )
 
     class Meta:
-        indexes = [models.Index(fields=['id'])]
         ordering = ['id']
         verbose_name = 'Person'
         verbose_name_plural = 'People'
@@ -91,7 +90,6 @@ class Device(models.Model):
     )
 
     class Meta():
-        indexes = [models.Index(fields=['id'])]
         ordering = ['id']
         verbose_name = 'Device'
         verbose_name_plural = 'Devices'

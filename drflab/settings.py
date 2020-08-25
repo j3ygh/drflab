@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'drflab.wsgi.application'
 ORACLE_DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.oracle',
-        'NAME': 'db1',
+        'NAME': 'drflabdb',
         'USER': 'system',
         'PASSWORD': 'User1234',
         'HOST': '10.50.12.21',

@@ -110,11 +110,11 @@ class CallLog(models.Model):
         default=get_default_uuid,
         editable=False,
     )
-    url = models.CharField(
+    request_url = models.CharField(
         verbose_name='Request URL',
         max_length=511,
     )
-    data = models.CharField(
+    request_data = models.CharField(
         verbose_name='Request data',
         max_length=511,
     )

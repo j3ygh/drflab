@@ -19,7 +19,7 @@ class DeviceViewSet(viewsets.ModelViewSet):
     serializer_class = DeviceSerializer
 
 
-class CallLogSerializer(viewsets.ModelViewSet):
+class CallLogViewSet(viewsets.ModelViewSet):
     queryset = CallLog.objects.all()
     serializer_class = CallLogSerializer
 

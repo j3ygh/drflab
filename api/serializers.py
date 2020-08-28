@@ -47,14 +47,10 @@ class CallLogSerializer(serializers.ModelSerializer):
         model = CallLog
         fields = (
             'id',
-            'id',
             'uuid',
-            'name',
-            'os',
-            'cpu',
-            'ram',
-            'remark',
-            'customer',
+            'request_url',
+            'request_data',
+            'called_by',
         )
         extra_kwargs = {
             'url': {'view_name': 'api:crm:calllog-detail'}

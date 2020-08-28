@@ -91,7 +91,7 @@ ORACLE_DATABASES = {
 ORACLE_UTF8_DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.oracle',
-        'NAME': 'drflabutf8db',
+        'NAME': 'drflabal32ut',
         'USER': 'system',
         'PASSWORD': 'User1234',
         'HOST': '10.50.12.21',
@@ -110,7 +110,11 @@ MARIA_DATABASES = {
     }
 }
 
+<<<<<<< Updated upstream
 DATABASES = MARIA_DATABASES
+=======
+DATABASES = ORACLE_UTF8_DATABASES
+>>>>>>> Stashed changes
 
 
 # Password validation

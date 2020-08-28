@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from crm.models import Person
 from crm.models import Device
+from crm.models import CallLog
 
 
 class PersonSerializer(serializers.ModelSerializer):
@@ -37,4 +38,24 @@ class DeviceSerializer(serializers.ModelSerializer):
         )
         extra_kwargs = {
             'url': {'view_name': 'api:crm:device-detail'}
+        }
+
+
+class CallLogSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = CallLog
+        fields = (
+            'id',
+            'id',
+            'uuid',
+            'name',
+            'os',
+            'cpu',
+            'ram',
+            'remark',
+            'customer',
+        )
+        extra_kwargs = {
+            'url': {'view_name': 'api:crm:calllog-detail'}
         }

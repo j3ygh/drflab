@@ -96,3 +96,41 @@ class Device(models.Model):
 
     def __str__(self):
         return self.uuid if self.name == '' else f'{self.name} ({self.uuid})'
+
+
+class CallLog(models.Model):
+
+    id = models.AutoField(
+        verbose_name='ID',
+        primary_key=True,
+    )
+    uuid = models.CharField(
+        verbose_name='UUID',
+        max_length=63,
+        default=get_default_uuid,
+        editable=False,
+    )
+    url = models.CharField(
+        verbose_name='Request URL',
+        max_length=511,
+    )
+    data = models.CharField(
+        verbose_name='Request data',
+        max_length=511,
+    )
+    called_by = models.ForeignKey(
+        verbose_name='Called by',
+        blank=True,
+        null=True,
+        to='Person',
+        on_delete=models.CASCADE,
+        related_name='whose_%(model_name)s_customer',
+    )
+
+    class Meta():
+        ordering = ['id']
+        verbose_name = 'Device'
+        verbose_name_plural = 'Devices'
+
+    def __str__(self):
+        return self.uuid if self.name == '' else f'{self.name} ({self.uuid})'

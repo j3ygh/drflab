@@ -110,11 +110,7 @@ MARIA_DATABASES = {
     }
 }
 
-<<<<<<< Updated upstream
-DATABASES = MARIA_DATABASES
-=======
 DATABASES = ORACLE_UTF8_DATABASES
->>>>>>> Stashed changes
 
 
 # Password validation

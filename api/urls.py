@@ -14,5 +14,5 @@ router_crm.register('calllog', CallLogViewSet)
 
 urlpatterns = [
     path('', include((router_crm.urls, 'crm'))),
-    path('hello-world', hello_world, name='hello_world'),
+    path('hello-world/', hello_world, name='hello_world'),
 ]

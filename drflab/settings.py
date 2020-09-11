@@ -99,6 +99,17 @@ ORACLE_UTF8_DATABASES = {
     }
 }
 
+ORACLE_DATABASES_JEFF = {
+    'default': {
+        'ENGINE': 'django.db.backends.oracle',
+        'NAME': 'db1',
+        'USER': 'chief',
+        'PASSWORD': 'User1234',
+        'HOST': '10.50.12.21',
+        'PORT': '1521',
+    }
+}
+
 MARIA_DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',

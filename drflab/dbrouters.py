@@ -1,6 +1,6 @@
 class DBRouter:
-    builtin_apps = {'admin', 'auth', 'contenttypes', 'sessions', 'messages', 'staticfiles'}
-    custom_apps = {'rest_framework', 'api', 'crm', 'usage'}
+    builtin_apps = {'admin', 'auth', 'contenttypes', 'sessions', 'messages', 'staticfiles', 'rest_framework', 'api', 'crm', 'usage'}
+    custom_apps = {'ocrm'}
 
     def db_for_read(self, model, **hints):
         return 'builtin' if model._meta.app_label in self.builtin_apps else 'custom'

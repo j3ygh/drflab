@@ -2,6 +2,7 @@ from rest_framework import serializers
 from crm.models import Person
 from crm.models import Device
 from crm.models import CallLog
+from ocrm.models import UserProfile
 
 
 class PersonSerializer(serializers.ModelSerializer):
@@ -54,4 +55,29 @@ class CallLogSerializer(serializers.ModelSerializer):
         )
         extra_kwargs = {
             'url': {'view_name': 'api:crm:calllog-detail'}
+        }
+
+
+class UserProfileSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = UserProfile
+        fields = (
+            'chief_id',
+            'nick_name',
+            'gender',
+            'birthday',
+            'group_id',
+            'height',
+            'weight',
+            'blood_type',
+            'member_level',
+            'disabled',
+            'ext_date_time',
+            'abdominal_circumference',
+            'marriage',
+            'user_seq',
+        )
+        extra_kwargs = {
+            'url': {'view_name': 'api:crm:userprofile-detail'}
         }

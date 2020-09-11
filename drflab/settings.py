@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'api.apps.ApiConfig',
     'crm.apps.CrmConfig',
     'usage.apps.UsageConfig',
+    'ocrm.apps.OcrmConfig',
 ]
 
 MIDDLEWARE = [

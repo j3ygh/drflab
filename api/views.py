@@ -5,6 +5,8 @@ from crm.models import Device
 from .serializers import DeviceSerializer
 from crm.models import CallLog
 from .serializers import CallLogSerializer
+from ocrm.models import UserProfile
+from .serializers import UserProfileSerializer
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 
@@ -22,6 +24,11 @@ class DeviceViewSet(viewsets.ModelViewSet):
 class CallLogViewSet(viewsets.ModelViewSet):
     queryset = CallLog.objects.all()
     serializer_class = CallLogSerializer
+
+
+class UserProfileViewSet(viewsets.ModelViewSet):
+    queryset = UserProfile.objects.all()
+    serializer_class = UserProfileSerializer
 
 
 @api_view(['GET', 'POST'])

@@ -110,18 +110,25 @@ ORACLE_DATABASES_JEFF = {
     }
 }
 
-MARIA_DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'drflabdb',
-        'USER': 'admin',
-        'PASSWORD': '20180105',
-        'HOST': 'localhost',
-        'PORT': '3306',
-    }
+MARIA_DATABASES_DEFAULT = {
+    'ENGINE': 'django.db.backends.mysql',
+    'NAME': 'drflabdb1',
+    'USER': 'admin',
+    'PASSWORD': '20180105',
+    'HOST': 'localhost',
+    'PORT': '3306',
 }
 
-DATABASES = ORACLE_UTF8_DATABASES
+MARIA_DATABASES_CUSTOM = {
+    'ENGINE': 'django.db.backends.mysql',
+    'NAME': 'drflabdb2',
+    'USER': 'admin',
+    'PASSWORD': '20180105',
+    'HOST': 'localhost',
+    'PORT': '3306',
+}
+
+DATABASES = MARIA_DATABASES_DEFAULT
 
 
 # Password validation

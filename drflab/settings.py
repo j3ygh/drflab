@@ -76,38 +76,32 @@ WSGI_APPLICATION = 'drflab.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-# ORACLE_DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.oracle',
-#         'NAME': 'drflabdb',
-#         'USER': 'system',
-#         'PASSWORD': 'User1234',
-#         'HOST': '10.50.12.21',
-#         'PORT': '1521',
-#     }
-# }
+ORACLE_DATABASE = {
+    'ENGINE': 'django.db.backends.oracle',
+    'NAME': 'drflabdb',
+    'USER': 'system',
+    'PASSWORD': 'User1234',
+    'HOST': '10.50.12.21',
+    'PORT': '1521',
+}
 
-# ORACLE_UTF8_DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.oracle',
-#         'NAME': 'drflabal32ut',
-#         'USER': 'system',
-#         'PASSWORD': 'User1234',
-#         'HOST': '10.50.12.21',
-#         'PORT': '1521',
-#     }
-# }
+ORACLE_UTF8_DATABASE = {
+    'ENGINE': 'django.db.backends.oracle',
+    'NAME': 'drflabal32ut',
+    'USER': 'system',
+    'PASSWORD': 'User1234',
+    'HOST': '10.50.12.21',
+    'PORT': '1521',
+}
 
-# ORACLE_DATABASES_JEFF = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.oracle',
-#         'NAME': 'db1',
-#         'USER': 'chief',
-#         'PASSWORD': 'User1234',
-#         'HOST': '10.50.12.21',
-#         'PORT': '1521',
-#     }
-# }
+ORACLE_DATABASE_JEFF = {
+    'ENGINE': 'django.db.backends.oracle',
+    'NAME': 'db1',
+    'USER': 'chief',
+    'PASSWORD': 'User1234',
+    'HOST': '10.50.12.21',
+    'PORT': '1521',
+}
 
 MARIA_DATABASE_DEFAULT = {
     'ENGINE': 'django.db.backends.mysql',
@@ -129,8 +123,8 @@ MARIA_DATABASE_CUSTOM = {
 
 DATABASES = {
     'default': {},
-    'bulitin': MARIA_DATABASE_DEFAULT,
-    'custom': MARIA_DATABASE_CUSTOM,
+    'builtin': MARIA_DATABASE_DEFAULT,
+    'custom': ORACLE_DATABASE_JEFF,
 }
 
 DATABASE_ROUTERS = ['drflab.dbrouters.DBRouter']

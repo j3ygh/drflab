@@ -12,10 +12,10 @@ class DBRouter:
         return True
 
     def allow_migrate(self, db, app_label, model_name=None, **hints):
-        print(db)
         if app_label in self.builtin_apps and db == 'builtin':
             result = True
-        if app_label in self.custom_apps and db == 'custom':
+        elif app_label in self.custom_apps and db == 'custom':
             result = True
-        result = None
+        else:
+            result = False
         return result

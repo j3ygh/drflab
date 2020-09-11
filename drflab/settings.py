@@ -103,7 +103,7 @@ ORACLE_DATABASE_JEFF = {
     'PORT': '1521',
 }
 
-MARIA_DATABASE_DEFAULT = {
+MARIA_DATABASE_BUILTIN = {
     'ENGINE': 'django.db.backends.mysql',
     'NAME': 'drflabdb1',
     'USER': 'admin',
@@ -123,7 +123,7 @@ MARIA_DATABASE_CUSTOM = {
 
 DATABASES = {
     'default': {},
-    'builtin': MARIA_DATABASE_DEFAULT,
+    'builtin': MARIA_DATABASE_BUILTIN,
     'custom': ORACLE_DATABASE_JEFF,
 }
 

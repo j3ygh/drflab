@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+DATABASE_ROUTERS = ['drflab.dbrouter.DBRouter', ]
 
 # Application definition
 
@@ -115,7 +116,7 @@ ORACLE_DATABASES_JEFF = {
     }
 }
 
-MARIA_DATABASES_DEFAULT = {
+MARIA_DATABASE_DEFAULT = {
     'ENGINE': 'django.db.backends.mysql',
     'NAME': 'drflabdb1',
     'USER': 'admin',
@@ -124,7 +125,7 @@ MARIA_DATABASES_DEFAULT = {
     'PORT': '3306',
 }
 
-MARIA_DATABASES_CUSTOM = {
+MARIA_DATABASE_CUSTOM = {
     'ENGINE': 'django.db.backends.mysql',
     'NAME': 'drflabdb2',
     'USER': 'admin',
@@ -134,11 +135,9 @@ MARIA_DATABASES_CUSTOM = {
 }
 
 DATABASES = {
-    'default_database': MARIA_DATABASES_DEFAULT,
-    'custom_database': MARIA_DATABASES_CUSTOM,
+    'default': MARIA_DATABASE_DEFAULT,
+    'custom': MARIA_DATABASE_CUSTOM,
 }
-
-DATABASE_ROUTERS = ['drflab.DBRouter']
 
 
 # Password validation

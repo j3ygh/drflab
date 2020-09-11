@@ -3,13 +3,13 @@ from django.conf import settings
 
 class DBRouter:
     """
-    DEFAULT_APPS --> default_database
-    CUSTOME_APPS --> custom_database
+    DEFAULT_APPS --> default
+    CUSTOME_APPS --> custom
     """
     DEFAULT_APPS = settings.DEFAULT_APPS
     CUSTOM_APPS = settings.CUSTOM_APPS
-    default_database = 'default_database'
-    custom_database = 'custom_database'
+    default_database = 'default'
+    custom_database = 'custom'
 
     def db_for_read(self, model, **hints):
         if model._meta.app_label in self.DEFAULT_APPS:
@@ -22,7 +22,15 @@ class DBRouter:
         return self.custom_database
 
     def allow_relation(self, obj1, obj2, **hints):
-        return True
+        return None
 
     def allow_migrate(self, db, app_label, model_name=None, **hints):
-        return True
+        print(self.DEFAULT_APPS)
+        print(self.CUSTOM_APPS)
+        if app_label in self.DEFAULT_APPS:
+            if db == self.default_database:
+                return True
+        if app_label in self.CUSTOM_APPS:
+            if db == self.custom_database:
+                return True
+        return None

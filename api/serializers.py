@@ -50,8 +50,10 @@ class CallLogSerializer(serializers.ModelSerializer):
             'id',
             'uuid',
             'path',
+            'method',
             'params',
             'data',
+            'meta',
             'called_by',
         )
         extra_kwargs = {

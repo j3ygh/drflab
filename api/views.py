@@ -30,23 +30,39 @@ class UserProfileViewSet(viewsets.ModelViewSet):
     queryset = UserProfile.objects.all()
     serializer_class = UserProfileSerializer
 
-    def list(self, request, *args, **kwargs):
+    def record_call_log(self, request):
         CallLog.objects.create(
             path=request.path,
+            method=request.method,
             params=str(dict(request.GET)),
             data=str(dict(request.POST)),
+            meta=str(request.META),
             called_by=request.user,
         )
-        return super().list(request, *args, **kwargs)
 
     def create(self, request, *args, **kwargs):
-        CallLog.objects.create(
-            path=request.path,
-            params=str(dict(request.GET)),
-            data=str(dict(request.POST)),
-            called_by=request.user,
-        )
+        self.record_call_log(request)
         return super().create(request, *args, **kwargs)
+
+    def retrieve(self, request, *args, **kwargs):
+        self.record_call_log(request)
+        return super().retrieve(request, *args, **kwargs)
+
+    def update(self, request, *args, **kwargs):
+        self.record_call_log(request)
+        return super().update(request, *args, **kwargs)
+
+    def partial_update(self, request, *args, **kwargs):
+        self.record_call_log(request)
+        return super().partial_update(request, *args, **kwargs)
+
+    def destroy(self, request, *args, **kwargs):
+        self.record_call_log(request)
+        return super().destroy(request, *args, **kwargs)
+
+    def list(self, request, *args, **kwargs):
+        self.record_call_log(request)
+        return super().list(request, *args, **kwargs)
 
 
 @api_view(['GET', 'POST'])

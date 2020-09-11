@@ -115,12 +115,20 @@ class CallLog(models.Model):
         verbose_name='Path',
         blank=True,
     )
+    method = models.TextField(
+        verbose_name='Method',
+        blank=True,
+    )
     params = models.TextField(
         verbose_name='Params',
         blank=True,
     )
     data = models.TextField(
         verbose_name='Data',
+        blank=True,
+    )
+    meta = models.TextField(
+        verbose_name='Meta',
         blank=True,
     )
     called_by = models.ForeignKey(

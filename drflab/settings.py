@@ -30,18 +30,23 @@ ALLOWED_HOSTS = ['*']
 
 # Application definition
 
-INSTALLED_APPS = [
+DEFAULT_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+]
+
+CUSTOM_APPS = [
     'rest_framework',  # django rest framework
     'api.apps.ApiConfig',
     'crm.apps.CrmConfig',
     'usage.apps.UsageConfig',
 ]
+
+INSTALLED_APPS = DEFAULT_APPS + CUSTOM_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -128,7 +133,12 @@ MARIA_DATABASES_CUSTOM = {
     'PORT': '3306',
 }
 
-DATABASES = MARIA_DATABASES_DEFAULT
+DATABASES = {
+    'default_database': MARIA_DATABASES_DEFAULT,
+    'custom_database': MARIA_DATABASES_CUSTOM,
+}
+
+DATABASE_ROUTERS = ['drflab.DBRouter']
 
 
 # Password validation

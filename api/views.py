@@ -30,6 +30,24 @@ class UserProfileViewSet(viewsets.ModelViewSet):
     queryset = UserProfile.objects.all()
     serializer_class = UserProfileSerializer
 
+    def list(self, request, *args, **kwargs):
+        CallLog.objects.create(
+            path=request.path,
+            params=str(dict(request.GET)),
+            data=str(dict(request.POST)),
+            called_by=request.user,
+        )
+        return super().list(request, *args, **kwargs)
+
+    def create(self, request, *args, **kwargs):
+        CallLog.objects.create(
+            path=request.path,
+            params=str(dict(request.GET)),
+            data=str(dict(request.POST)),
+            called_by=request.user,
+        )
+        return super().create(request, *args, **kwargs)
+
 
 @api_view(['GET', 'POST'])
 def hello_world(request):

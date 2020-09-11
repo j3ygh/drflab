@@ -172,7 +172,7 @@ STATIC_URL = '/static/'
 
 # Django REST framework
 
-LOGIN_NEEDED = False
+LOGIN_NEEDED = True
 BROWSABLEBAPI_NEEDED = True
 
 REST_FRAMEWORK = {}

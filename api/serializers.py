@@ -49,8 +49,9 @@ class CallLogSerializer(serializers.ModelSerializer):
         fields = (
             'id',
             'uuid',
-            'request_url',
-            'request_data',
+            'path',
+            'params',
+            'data',
             'called_by',
         )
         extra_kwargs = {

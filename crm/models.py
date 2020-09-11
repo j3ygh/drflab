@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 import uuid
 
 
@@ -110,19 +111,23 @@ class CallLog(models.Model):
         default=get_default_uuid,
         editable=False,
     )
-    request_url = models.CharField(
-        verbose_name='Request URL',
-        max_length=511,
+    path = models.TextField(
+        verbose_name='Path',
+        blank=True,
     )
-    request_data = models.CharField(
-        verbose_name='Request data',
-        max_length=511,
+    params = models.TextField(
+        verbose_name='Params',
+        blank=True,
+    )
+    data = models.TextField(
+        verbose_name='Data',
+        blank=True,
     )
     called_by = models.ForeignKey(
         verbose_name='Called by',
         blank=True,
         null=True,
-        to='Person',
+        to=settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
         related_name='whose_%(model_name)s_customer',
     )
@@ -133,4 +138,4 @@ class CallLog(models.Model):
         verbose_name_plural = 'Devices'
 
     def __str__(self):
-        return self.uuid if self.name == '' else f'{self.name} ({self.uuid})'
+        return self.uuid if self.request_url == '' else f'{self.request_url} ({self.uuid})'

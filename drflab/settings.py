@@ -27,27 +27,20 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-DATABASE_ROUTERS = ['drflab.dbrouter.DBRouter', ]
-
 # Application definition
 
-DEFAULT_APPS = [
+INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-]
-
-CUSTOM_APPS = [
-    'rest_framework',  # django rest framework
+    'rest_framework',
     'api.apps.ApiConfig',
     'crm.apps.CrmConfig',
     'usage.apps.UsageConfig',
 ]
-
-INSTALLED_APPS = DEFAULT_APPS + CUSTOM_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -83,38 +76,38 @@ WSGI_APPLICATION = 'drflab.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-ORACLE_DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.oracle',
-        'NAME': 'drflabdb',
-        'USER': 'system',
-        'PASSWORD': 'User1234',
-        'HOST': '10.50.12.21',
-        'PORT': '1521',
-    }
-}
+# ORACLE_DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.oracle',
+#         'NAME': 'drflabdb',
+#         'USER': 'system',
+#         'PASSWORD': 'User1234',
+#         'HOST': '10.50.12.21',
+#         'PORT': '1521',
+#     }
+# }
 
-ORACLE_UTF8_DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.oracle',
-        'NAME': 'drflabal32ut',
-        'USER': 'system',
-        'PASSWORD': 'User1234',
-        'HOST': '10.50.12.21',
-        'PORT': '1521',
-    }
-}
+# ORACLE_UTF8_DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.oracle',
+#         'NAME': 'drflabal32ut',
+#         'USER': 'system',
+#         'PASSWORD': 'User1234',
+#         'HOST': '10.50.12.21',
+#         'PORT': '1521',
+#     }
+# }
 
-ORACLE_DATABASES_JEFF = {
-    'default': {
-        'ENGINE': 'django.db.backends.oracle',
-        'NAME': 'db1',
-        'USER': 'chief',
-        'PASSWORD': 'User1234',
-        'HOST': '10.50.12.21',
-        'PORT': '1521',
-    }
-}
+# ORACLE_DATABASES_JEFF = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.oracle',
+#         'NAME': 'db1',
+#         'USER': 'chief',
+#         'PASSWORD': 'User1234',
+#         'HOST': '10.50.12.21',
+#         'PORT': '1521',
+#     }
+# }
 
 MARIA_DATABASE_DEFAULT = {
     'ENGINE': 'django.db.backends.mysql',
@@ -135,9 +128,12 @@ MARIA_DATABASE_CUSTOM = {
 }
 
 DATABASES = {
-    'default': MARIA_DATABASE_DEFAULT,
+    'default': {},
+    'bulitin': MARIA_DATABASE_DEFAULT,
     'custom': MARIA_DATABASE_CUSTOM,
 }
+
+DATABASE_ROUTERS = ['drflab.dbrouters.DBRouter']
 
 
 # Password validation

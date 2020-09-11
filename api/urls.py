@@ -9,8 +9,8 @@ from .views import hello_world
 
 # Routers provide an easy way of automatically determining the URL conf.
 router_crm = routers.DefaultRouter()
-router_crm.register('person', PersonViewSet)
-router_crm.register('device', DeviceViewSet)
+# router_crm.register('person', PersonViewSet)
+# router_crm.register('device', DeviceViewSet)
 router_crm.register('calllog', CallLogViewSet)
 router_crm.register('userprofile', UserProfileViewSet)
 

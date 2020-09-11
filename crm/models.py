@@ -139,6 +139,11 @@ class CallLog(models.Model):
         on_delete=models.CASCADE,
         related_name='whose_%(model_name)s_customer',
     )
+    created_at = models.DateTimeField(
+        verbose_name='Created at',
+        null=True,
+        auto_now_add=True,
+    )
 
     class Meta():
         ordering = ['id']

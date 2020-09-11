@@ -55,6 +55,7 @@ class CallLogSerializer(serializers.ModelSerializer):
             'data',
             'meta',
             'called_by',
+            'created_at',
         )
         extra_kwargs = {
             'url': {'view_name': 'api:crm:calllog-detail'}

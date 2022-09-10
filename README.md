@@ -12,5 +12,5 @@ Jimmy Lin <b00502013@gmail.com>
 
 Distributed under the MIT license. See ``LICENSE`` for more information.
 
-[https://github.com/j3ygh/](https://github.com/j3ygh/)
+[https://github.com/thejimmylin/](https://github.com/thejimmylin/)
 
